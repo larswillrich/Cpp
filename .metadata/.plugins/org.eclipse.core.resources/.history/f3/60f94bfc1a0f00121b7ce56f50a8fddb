@@ -1,0 +1,17 @@
+/*
+ * TTime.cpp
+ *
+ *  Created on: 05.10.2012
+ *      Author: Lars Willrich
+ */
+
+#include "TTime.h"
+#include <string>
+
+TTime::TTime() {
+
+}
+
+TTime::~TTime() {
+}
+

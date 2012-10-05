@@ -1,0 +1,17 @@
+/*
+ * TDate.h
+ *
+ *  Created on: 05.10.2012
+ *      Author: Lars Willrich
+ */
+
+#ifndef TDATE_H_
+#define TDATE_H_
+
+class TDate {
+public:
+	TDate();
+	virtual ~TDate();
+};
+
+#endif /* TDATE_H_ */

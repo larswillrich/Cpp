@@ -1,0 +1,27 @@
+/*
+ * TDate.cpp
+ *
+ *  Created on: 05.10.2012
+ *      Author: Lars Willrich
+ */
+
+#include "TDate.h"
+#include <ctime>
+
+TDate::TDate() {
+	time_t rawTime;
+	struct tm *ts;
+
+	rawTime = time(NULL);
+	ts = localtime(&rawTime);
+}
+
+TDate::TDate(int day, int month, int year){
+	this->day = day;
+	this->month = month;
+	this->year = year;
+}
+
+TDate::~TDate() {
+}
+

@@ -1,0 +1,19 @@
+/*
+ * TDate.cpp
+ *
+ *  Created on: 05.10.2012
+ *      Author: Lars Willrich
+ */
+
+#include "TDate.h"
+
+TDate::TDate() {
+}
+
+TDate::TDate(int day, int month, int year){
+
+}
+
+TDate::~TDate() {
+}
+
