@@ -11,6 +11,7 @@
 *.la
 *.a
 
+.metadata
 Uebung1\.settings\*
 Uebung1\Debug\*
 Uebung1\.cproject
