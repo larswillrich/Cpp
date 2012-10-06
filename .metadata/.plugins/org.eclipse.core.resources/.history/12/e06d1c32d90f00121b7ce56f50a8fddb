@@ -1,0 +1,50 @@
+/*
+ * TTime.cpp
+ *
+ *  Created on: 05.10.2012
+ *      Author: Lars Willrich
+ */
+
+#include "TTime.h"
+#include <time.h>
+#include <stdio.h>
+
+TTime::TTime() {
+	time_t rawTime;
+	struct tm *ts;
+
+	rawTime = time(NULL);
+	ts = localtime(&rawTime);
+
+	setHour(ts->tm_hour);
+	setMinute(ts->tm_min);
+}
+
+TTime::TTime(int hour, int minute) {
+
+	setHour(hour);
+	setMinute(minute);
+}
+
+TTime::~TTime() {
+}
+
+int TTime::getHour() const {
+	return hour;
+}
+
+void TTime::setHour(int hour) {
+	this->hour = hour;
+}
+
+int TTime::getMinute() const {
+	return minute;
+}
+
+void TTime::setMinute(int minute) {
+	this->minute = minute;
+}
+
+void TTime::print(){
+	printf("%.2i:%.2i", getHour(), getMinute());
+}

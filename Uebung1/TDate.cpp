@@ -15,21 +15,50 @@ TDate::TDate() {
 	rawTime = time(NULL);
 	ts = localtime(&rawTime);
 
-	TDate(ts->tm_mday,ts->tm_mon,ts->tm_year);
+	setDay(ts->tm_mday);
+	setMonth(ts->tm_mon + 1);
+	setYear(ts->tm_year + 1900);
 }
 
 TDate::TDate(int day, int month, int year){
-	this->day = day;
-	this->month = month;
-	this->year = year;
+	setDay(day);
+	setMonth(month);
+	setYear(year);
+}
 
-	printf("Aktuelles Datum: %.2i.%.2i.%.2i", day, month+1, 1900+year);
+int TDate::getDay() const
+{
+    return day;
+}
+
+void TDate::setDay(int day)
+{
+    this->day = day;
+}
+
+int TDate::getMonth() const
+{
+    return month;
+}
+
+void TDate::setMonth(int month)
+{
+    this->month = month;
+}
+
+int TDate::getYear() const
+{
+    return year;
+}
+
+void TDate::setYear(int year)
+{
+    this->year = year;
+}
+
+void TDate::print(){
+	printf("%.2i.%.2i.%.2i", getDay(), getMonth(), getYear());
 }
 
 TDate::~TDate() {
-}
-
-
-int main(){
-	new TDate();
 }

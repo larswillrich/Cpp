@@ -1,0 +1,18 @@
+/*
+ * Main.h
+ *
+ *  Created on: 06.10.2012
+ *      Author: Lars Willrich
+ */
+
+#ifndef MAIN_H_
+#define MAIN_H_
+#include <TDate.h>
+#include <TTime.h>
+class Main {
+public:
+	Main();
+	virtual ~Main();
+};
+
+#endif /* MAIN_H_ */

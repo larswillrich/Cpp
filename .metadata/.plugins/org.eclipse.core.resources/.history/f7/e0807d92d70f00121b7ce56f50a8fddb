@@ -1,0 +1,18 @@
+/*
+ * Main2.cpp
+ *
+ *  Created on: 06.10.2012
+ *      Author: Lars Willrich
+ */
+
+#include "Main2.h"
+
+Main2::Main2() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Main2::~Main2() {
+	// TODO Auto-generated destructor stub
+}
+

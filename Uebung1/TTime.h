@@ -7,40 +7,24 @@
 
 #ifndef TTIME_H_
 #define TTIME_H_
-#include <string>
 
 class TTime {
 public:
 	TTime();
+	TTime(int hour, int min, int sec);
 	virtual ~TTime();
 
-	int second;
-	int minute;
+	int sec;
+	int min;
 	int hour;
 
-	int getHour() const {
-		return hour;
-	}
-
-	void setHour(int hour) {
-		this->hour = hour;
-	}
-
-	int getMinute() const {
-		return minute;
-	}
-
-	void setMinute(int minute) {
-		this->minute = minute;
-	}
-
-	int getSecond() const {
-		return second;
-	}
-
-	void setSecond(int second) {
-		this->second = second;
-	}
+	int getHour() const;
+	void setHour(int hour);
+	int getMin() const;
+	void setMin(int min);
+	int getSec() const;
+	void setSec(int sec);
+	void print();
 };
 
 #endif /* TTIME_H_ */

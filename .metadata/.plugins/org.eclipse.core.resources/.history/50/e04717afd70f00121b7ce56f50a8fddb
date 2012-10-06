@@ -1,0 +1,25 @@
+/*
+ * Main2.cpp
+ *
+ *  Created on: 06.10.2012
+ *      Author: Lars Willrich
+ */
+
+#include "Main2.h"
+
+Main2::Main2() {
+	TDate t;
+	printf("Datum: ");
+	t.printDate();
+
+	printf("\n");
+
+	TTime tt;
+	printf("Uhrzeit: ");
+	tt.printTime();
+}
+
+Main2::~Main2() {
+	// TODO Auto-generated destructor stub
+}
+

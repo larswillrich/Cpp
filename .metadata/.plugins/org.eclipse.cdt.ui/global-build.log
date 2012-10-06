@@ -155,3 +155,493 @@ Time consumed: 543  ms.
 
 **** Internal Builder is used for build               ****
 Nothing to build for Uebung1
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 309  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+Nothing to build for Uebung1
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 363  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+Nothing to build for Uebung1
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In constructor 'TDate::TDate(int, int, int)':
+..\TDate.cpp:26:2: error: 'string' was not declared in this scope
+..\TDate.cpp:26:2: note: suggested alternative:
+In file included from z:\programme\windows\mingw\bin\../lib/gcc/mingw32/4.7.0/include/c++/string:41:0,
+                 from ..\TDate.h:10,
+                 from ..\TDate.cpp:7:
+z:\programme\windows\mingw\bin\../lib/gcc/mingw32/4.7.0/include/c++/bits/stringfwd.h:65:33: note:   'std::string'
+..\TDate.cpp:26:9: error: expected ';' before 'a'
+Build error occurred, build is stopped
+Time consumed: 187  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 362  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 360  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 358  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 362  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 361  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 358  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 357  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 364  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 362  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 358  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 360  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In constructor 'TDate::TDate()':
+..\TDate.cpp:18:8: error: invalid use of 'TDate::TDate'
+Build error occurred, build is stopped
+Time consumed: 180  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In constructor 'TDate::TDate()':
+..\TDate.cpp:13:13: warning: variable 'ts' set but not used [-Wunused-but-set-variable]
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 362  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In constructor 'TDate::TDate()':
+..\TDate.cpp:19:8: error: invalid use of 'TDate::TDate'
+Build error occurred, build is stopped
+Time consumed: 180  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 357  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 358  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 358  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In constructor 'TDate::TDate()':
+..\TDate.cpp:22:9: error: lvalue required as left operand of assignment
+Build error occurred, build is stopped
+Time consumed: 180  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 362  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 362  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In constructor 'TDate::TDate()':
+..\TDate.cpp:15:27: error: lvalue required as unary '&' operand
+..\TDate.cpp:12:9: warning: unused variable 'rawTime' [-Wunused-variable]
+Build error occurred, build is stopped
+Time consumed: 195  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 360  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 373  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In function 'int main()':
+..\TDate.cpp:74:2: error: 'TTime' was not declared in this scope
+..\TDate.cpp:74:8: error: expected ';' before 'tt'
+..\TDate.cpp:76:2: error: 'tt' was not declared in this scope
+Build error occurred, build is stopped
+Time consumed: 183  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+..\TTime.cpp: In constructor 'TTime::TTime()':
+..\TTime.cpp:15:21: error: 'time' was not declared in this scope
+..\TTime.cpp:16:25: error: 'localtime' was not declared in this scope
+..\TTime.cpp: At global scope:
+..\TTime.cpp:57:23: error: no 'void TTime::printTime()' member function declared in class 'TTime'
+Build error occurred, build is stopped
+Time consumed: 180  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In function 'int main()':
+..\TDate.cpp:74:2: error: 'TTime' was not declared in this scope
+..\TDate.cpp:74:8: error: expected ';' before 'tt'
+..\TDate.cpp:76:2: error: 'tt' was not declared in this scope
+Build error occurred, build is stopped
+Time consumed: 209  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+..\TTime.cpp:58:23: error: no 'void TTime::printTime()' member function declared in class 'TTime'
+Build error occurred, build is stopped
+Time consumed: 199  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In function 'int main()':
+..\TDate.cpp:74:2: error: 'TTime' was not declared in this scope
+..\TDate.cpp:74:8: error: expected ';' before 'tt'
+..\TDate.cpp:76:2: error: 'tt' was not declared in this scope
+Build error occurred, build is stopped
+Time consumed: 180  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+..\TDate.cpp: In function 'int main()':
+..\TDate.cpp:74:2: error: 'TTime' was not declared in this scope
+..\TDate.cpp:74:8: error: expected ';' before 'tt'
+..\TDate.cpp:76:2: error: 'tt' was not declared in this scope
+Build error occurred, build is stopped
+Time consumed: 180  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 596  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -o Uebung1.exe TTime.o TDate.o
+Build complete for project Uebung1
+Time consumed: 359  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+..\Main.cpp:9:19: fatal error: TDate.h: No such file or directory
+compilation terminated.
+Build error occurred, build is stopped
+Time consumed: 216  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+..\Main.cpp:10:19: fatal error: TTime.h: No such file or directory
+compilation terminated.
+Build error occurred, build is stopped
+Time consumed: 224  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+In file included from ..\Main.cpp:8:0:
+..\Main.h:10:19: fatal error: TDate.h: No such file or directory
+compilation terminated.
+Build error occurred, build is stopped
+Time consumed: 98  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+..\Main.cpp: In constructor 'Main::Main()':
+..\Main.cpp:15:18: error: 'printf' was not declared in this scope
+Build error occurred, build is stopped
+Time consumed: 80  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 275  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 532  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+..\Main.cpp: In function 'int main()':
+..\Main.cpp:18:19: error: no matching function for call to 'TTime::TTime(int, int)'
+..\Main.cpp:18:19: note: candidates are:
+In file included from ..\Main.cpp:14:0:
+..\ttime.h:14:2: note: TTime::TTime(int, int, int)
+..\ttime.h:14:2: note:   candidate expects 3 arguments, 2 provided
+..\ttime.h:13:2: note: TTime::TTime()
+..\ttime.h:13:2: note:   candidate expects 0 arguments, 2 provided
+..\ttime.h:11:7: note: TTime::TTime(const TTime&)
+..\ttime.h:11:7: note:   candidate expects 1 argument, 2 provided
+Build error occurred, build is stopped
+Time consumed: 230  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 540  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TDate.o ..\TDate.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 260  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 408  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 408  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 409  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 410  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 408  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 411  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 414  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 409  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 408  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o Main.o ..\Main.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o TTime.o ..\TTime.cpp
+g++ -o Uebung1.exe TTime.o TDate.o Main.o
+Build complete for project Uebung1
+Time consumed: 540  ms.  
+
+**** Build of configuration Debug for project Uebung1 ****
+
+**** Internal Builder is used for build               ****
+Nothing to build for Uebung1

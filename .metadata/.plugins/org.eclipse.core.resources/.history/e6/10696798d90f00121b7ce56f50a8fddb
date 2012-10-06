@@ -1,0 +1,30 @@
+/*
+ * TTime.h
+ *
+ *  Created on: 05.10.2012
+ *      Author: Lars Willrich
+ */
+
+#ifndef TTIME_H_
+#define TTIME_H_
+
+class TTime {
+public:
+	TTime();
+	TTime(int hour, int min, int sec);
+	virtual ~TTime();
+
+	int sec;
+	int min;
+	int hour;
+
+	int getHour() const;
+	void setHour(int hour);
+	int getMin() const;
+	void setMin(int min);
+	int getMin() const;
+	void setMin(int min);
+	void print();
+};
+
+#endif /* TTIME_H_ */

@@ -7,7 +7,6 @@
 
 #ifndef TDATE_H_
 #define TDATE_H_
-#include <string>
 
 class TDate {
 public:
@@ -19,35 +18,13 @@ public:
     int month;
     int year;
 
-    int getDay() const
-    {
-        return day;
-    }
-
-    void setDay(int day)
-    {
-        this->day = day;
-    }
-
-    int getMonth() const
-    {
-        return month;
-    }
-
-    void setMonth(int month)
-    {
-        this->month = month;
-    }
-
-    int getYear() const
-    {
-        return year;
-    }
-
-    void setYear(int year)
-    {
-        this->year = year;
-    }
+    int getDay() const;
+    void setDay(int day);
+    int getMonth() const;
+    void setMonth(int month);
+    int getYear() const;
+    void setYear(int year);
+    void print();
 };
 
 #endif /* TDATE_H_ */
