@@ -10,8 +10,8 @@ using namespace std;
 #include "tdate.h"
 #include "ttime.h"
 int main() {
-	TDate D1, D2(3, 10, 2012);
-	TTime T1, T2(16, 0, 0);
+	TDate D1, D2(3, 3, 2012);
+	TTime T1, T2(12, 10, 0);
 
 	cout << "\nKlasse TDate:" << endl;
 	cout << "Standardkonstruktor 	Heutiges Datum D1: \t";
@@ -28,5 +28,6 @@ int main() {
 	cout << "Konstruktor 		Uebungsbeginn (T2): \t";
 	T2.print();
 	cout << endl;
+
 	return 0;
 }

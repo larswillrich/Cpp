@@ -18,12 +18,13 @@ public:
     int month;
     int year;
 
+    int setDate(int day, int month, int year);
     int getDay() const;
-    void setDay(int day);
+    //void setDay(int day);
     int getMonth() const;
-    void setMonth(int month);
+    //void setMonth(int month);
     int getYear() const;
-    void setYear(int year);
+    //void setYear(int year);
     void print();
 };
 

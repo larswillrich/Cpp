@@ -15,15 +15,49 @@ TDate::TDate() {
 	rawTime = time(NULL);
 	ts = localtime(&rawTime);
 
-	setDay(ts->tm_mday);
-	setMonth(ts->tm_mon + 1);
-	setYear(ts->tm_year + 1900);
+	setDate(ts->tm_mday, ts->tm_mon + 1, ts->tm_year + 1900);
 }
 
 TDate::TDate(int day, int month, int year){
-	setDay(day);
-	setMonth(month);
-	setYear(year);
+	int res = setDate(day, month, year);
+
+	if (res != 0){
+		setDate(01, 01, 1990);
+		printf("Eingegebenes Datum ist invalide, Eingabe wurde auf 01.01.1990 gesetzt.\n");
+	}
+}
+
+int TDate::setDate(int day, int month, int year){
+	this->year = year;
+
+	//Schaltjahr? Ja
+	if (year % 4 == 0){
+		if (month == 2 && day > 29)
+			return -1;
+	}
+
+	//Schaltjahr? Nein
+	else
+		if (month == 2 && day > 28)
+			return -1;
+
+	if (month > 12) return -1;
+	//Monate bis einschl. Juli
+	if (month < 8){
+		if (month % 2 == 0 && day > 30) return -1;
+		if (month % 2 != 0 && day > 31) return -1;
+	}
+
+	//Monate von einschl. August
+	if (month > 7){
+		if (month % 2 == 0 && day > 31) return -1;
+		if (month % 2 != 0 && day > 30) return -1;
+	}
+
+	this->month = month;
+	this->day = day;
+
+	return 0;
 }
 
 int TDate::getDay() const
@@ -31,29 +65,14 @@ int TDate::getDay() const
     return day;
 }
 
-void TDate::setDay(int day)
-{
-    this->day = day;
-}
-
 int TDate::getMonth() const
 {
     return month;
 }
 
-void TDate::setMonth(int month)
-{
-    this->month = month;
-}
-
 int TDate::getYear() const
 {
     return year;
-}
-
-void TDate::setYear(int year)
-{
-    this->year = year;
 }
 
 void TDate::print(){

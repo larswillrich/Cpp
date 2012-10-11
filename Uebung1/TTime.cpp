@@ -16,43 +16,42 @@ TTime::TTime() {
 	rawTime = time(NULL);
 	ts = localtime(&rawTime);
 
-	setHour(ts->tm_hour);
-	setMin(ts->tm_min);
-	setSec(ts->tm_sec);
+	int res = setTime(ts->tm_hour, ts->tm_min, ts->tm_sec);
 }
 
 TTime::TTime(int hour, int min, int sec) {
+	int res = setTime(hour, min, sec);
 
-	setHour(hour);
-	setMin(min);
-	setSec(sec);
+	if (res != 0){
+		setTime(00, 00, 00);
+		printf("Eingegebene Uhrzeit ist invalide, Eingabe wurde auf 00:00:00 gesetzt.\n");
+	}
 }
 
 TTime::~TTime() {
+}
+
+int TTime::setTime(int hour, int min, int sec){
+
+	if (hour > 24 || min > 59 || sec > 59) return -1;
+
+	this->hour = hour;
+	this->min = min;
+	this->sec = sec;
+
+	return 0;
 }
 
 int TTime::getHour() const {
 	return hour;
 }
 
-void TTime::setHour(int hour) {
-	this->hour = hour;
-}
-
 int TTime::getMin() const {
 	return min;
 }
 
-void TTime::setMin(int minute) {
-	this->min = min;
-}
-
 int TTime::getSec() const {
 	return sec;
-}
-
-void TTime::setSec(int sec) {
-	this->sec = sec;
 }
 
 void TTime::print() {

@@ -18,12 +18,13 @@ public:
 	int min;
 	int hour;
 
+	int setTime(int hour, int min, int sec);
 	int getHour() const;
-	void setHour(int hour);
+	//void setHour(int hour);
 	int getMin() const;
-	void setMin(int min);
+	//void setMin(int min);
 	int getSec() const;
-	void setSec(int sec);
+	//void setSec(int sec);
 	void print();
 };
 
