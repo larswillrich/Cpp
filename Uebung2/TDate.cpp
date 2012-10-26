@@ -76,7 +76,7 @@ int TDate::getYear() const
 }
 
 void TDate::print(){
-	printf("%.2i.%.2i.%.2i", getDay(), getMonth(), getYear());
+	printf("%2i.%2i.%4i", getDay(), getMonth(), getYear());
 }
 
 TDate::~TDate() {

@@ -49,10 +49,6 @@ int TAccount::getNumberBookings() const {
 	return numberBookings;
 }
 
-void TAccount::setNumberBookings(int numberBookings) {
-	this->numberBookings = numberBookings;
-}
-
 char* TAccount::getPin() const {
 	return pin;
 }

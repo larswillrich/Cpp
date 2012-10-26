@@ -76,12 +76,8 @@ void TCustomer::setStreetnumber(char* streetnumber) {
 	this->streetnumber = streetnumber;
 }
 
-/*TAccount** TCustomer::getAccountArray() const {
-	return tAccountArray;
-}*/
-
 void TCustomer::addNewAccount(TAccount* acc){
-	if (numberTAccounts >= 10) return;
+	if (numberTAccounts >= MAXCACCOUNTS) return;
 
 	tAccountArray[numberTAccounts] = acc;
 	numberTAccounts++;
@@ -89,7 +85,7 @@ void TCustomer::addNewAccount(TAccount* acc){
 
 
 TAccount* TCustomer::getAccountByID(int id){
-	if (id > 10 || id < 0) return NULL;
+	if (id > MAXCACCOUNTS || id < 0) return NULL;
 
 	return tAccountArray[id];
 }

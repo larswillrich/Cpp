@@ -35,6 +35,6 @@ void TMoney::setCurrency(char* currency){
 }
 
 void TMoney::print(){
-	printf("%.2f %s", getAmount(), getCurrency());
+	printf("%2f %s", getAmount(), getCurrency());
 }
 
