@@ -9,6 +9,7 @@
 #define TBANK_H_
 class TAccount;
 #include "TAccount.h"
+#define tAccountInBankArray_MAX 10
 class TBank {
 public:
 	TBank(char* name, char* blz);
@@ -20,6 +21,7 @@ public:
 	char* getName() const;
 	void setName(char* name);
 	TAccount** getAccountArray();
+	void addAccount(TAccount* acc);
 
 	void print();
 
@@ -27,8 +29,8 @@ private:
 
 	char* name;
 	char* blz;
-	TAccount* tAccountArray[10];
-	int accountArray_counter;
+	TAccount* tAccountInBankArray[tAccountInBankArray_MAX];
+	int accountsInBank_counter;
 };
 
 #endif /* TBANK_H_ */

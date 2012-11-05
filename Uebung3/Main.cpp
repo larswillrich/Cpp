@@ -25,6 +25,7 @@ int main() {
 	TAccount Konto1(&Kunde1, &Bank1, "1234567890", "9999");
 	TAccount Konto2(&Kunde2, &Bank1, "9876543120", "0101");
 	TAccount Konto3(&Kunde1, &Bank1, "111333555", "1357");
+	TMoney asdadasd(150.0);
 	TBooking Buchung1(TMoney(150.0), &Konto1, &Geldquelle, TDate(), TTime(), string("Startguthaben"));
 	TBooking Buchung2(TMoney(50.0), &Konto3, &Konto1, TDate(), TTime(), string("Umbuchung"));
 	TBooking Buchung3(TMoney(39.9), &Konto2, &Konto1, TDate(), TTime(), string("Rechnung 4711"));

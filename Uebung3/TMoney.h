@@ -8,7 +8,7 @@
 #ifndef TMONEY_H_
 #define TMONEY_H_
 
-
+#include <string>
 class TMoney {
 public:
 	TMoney(double amount, char* currency = "EUR");
@@ -17,9 +17,9 @@ public:
 	double getAmount();
 	void setCurrency(char* currency);
 	char* getCurrency();
-
+	std::string toString();
 	//Geldbetrag manipulieren
-	void addValue(int value);
+	void addValue(double value);
 
 	void print();
 

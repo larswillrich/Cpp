@@ -14,7 +14,7 @@ class TAccount;
 #include <iostream>
 #include <list>
 using namespace std;
-#define MAXCACCOUNTS 10
+#define tAccountInCustomerArray_MAX 10
 
 class TCustomer {
 public:
@@ -49,8 +49,8 @@ private:
 	char* plz;
 	char* city;
 	TDate birthday;
-	int numberTAccounts;
-	TAccount* tAccountArray[MAXCACCOUNTS];
+	int tAccountsInCustomer;
+	TAccount* tAccountInCustomerArray[tAccountInCustomerArray_MAX];
 };
 
 #endif /* TCUSTOMER_H_ */

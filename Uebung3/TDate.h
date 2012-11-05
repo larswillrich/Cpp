@@ -7,7 +7,7 @@
 
 #ifndef TDATE_H_
 #define TDATE_H_
-
+#include <string>
 class TDate {
 public:
 	TDate();
@@ -22,6 +22,7 @@ public:
     int getYear() const;
     //void setYear(int year);
     void print();
+    std::string toString();
 
 private:
     int day;

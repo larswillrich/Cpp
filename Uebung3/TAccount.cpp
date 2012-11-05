@@ -7,15 +7,24 @@
 
 #include "TAccount.h"
 #include <iostream>
+#include <math.h>
+#include <iomanip>
+TMoney getSignValueFromBookingByAccount(TAccount* acc, TBooking* b);
+char negZeichen(TMoney m);
 
-TAccount::TAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin) : accountAmount(0,"EUR"), bank(bank), bookingsCount(0) {
+TAccount::TAccount(TCustomer* customer, TBank* bank, char* accountNumber,
+		char* pin) :
+		accountAmount(0, "EUR"), bank(bank), bookingsCount(0) {
 	this->accountNumber = accountNumber;
 	this->pin = pin;
-	this->numberBookings = 0;
+	this->bookingsCount = 0;
 	this->customer = customer;
 
 	//Dem Kunden das Konto hinzufügen
 	customer->addNewAccount(this);
+
+	//Der Bank das Konto hinzufügen
+	bank->addAccount(this);
 }
 
 TAccount::~TAccount() {
@@ -23,10 +32,6 @@ TAccount::~TAccount() {
 
 TMoney TAccount::getAccountAmount() const {
 	return accountAmount;
-}
-
-void TAccount::setAccountAmount(TMoney accountAmount) {
-	this->accountAmount = accountAmount;
 }
 
 char* TAccount::getAccountNumber() const {
@@ -45,10 +50,6 @@ void TAccount::setCustomer(TCustomer* customer) {
 	this->customer = customer;
 }
 
-int TAccount::getNumberBookings() const {
-	return numberBookings;
-}
-
 char* TAccount::getPin() const {
 	return pin;
 }
@@ -65,7 +66,7 @@ void TAccount::setBank(TBank* bank) {
 	this->bank = bank;
 }
 
-TBooking** TAccount::getBookings(){
+TBooking** TAccount::getBookings() {
 	return bookings;
 }
 
@@ -73,23 +74,95 @@ int TAccount::getBookingsCount() const {
 	return bookingsCount;
 }
 
-void TAccount::printAccountStatement(){
+void TAccount::addBooking(TBooking* b) {
+	if (bookingsCount >= MAXBOOKING)
+		return;
+
+	bookings[bookingsCount] = b;
+	bookingsCount++;
+
+	if (b->getCreditor() == this)
+		accountAmount.addValue(b->getAmount().getAmount());
+	else
+		accountAmount.addValue(b->getAmount().getAmount() * (-1));
+}
+
+void TAccount::printAccountStatement() {
 
 	//Kontoauszug erstellen...
 
-	for (int i = 0;i<getBookingsCount();i++){
+	TTime t_current;
+	TDate d_current;
+
+	cout << "Kontoauszug vom " << d_current.toString() << "; " << t_current.toString() << "\n";
+	cout << "Kontonr.: " << getAccountNumber() << "; BLZ " << getBank()->getBlz() << "\n";
+	cout << "Kontoinhaber: " << getCustomer()->getName() << "\n";
+
+	std::cout << std::left << std::setw(11) << "Datum" << std::left
+			<< std::setw(17) << "| Betrag" << std::left << std::setw(33)
+			<< "| Absender / Empfaenger" << std::left << std::setw(14)
+			<< "| Buchungstext" << endl;
+
+	std::cout << setfill('-') << std::left << std::setw(11) << "" << std::left
+			<< std::setw(17) << "|" << std::left << std::setw(33) << "|"
+			<< std::left << std::setw(14) << "|" << endl;
+
+	std::cout << setfill(' ');
+
+	int bookingsAvailable = -1;
+	for (int i = 0; i < getBookingsCount(); i++) {
+
 		if (getBookings()[i]->getPrinted() != 0) {
+			bookingsAvailable = 0;
 			//Kontoauszug...
 
+			TMoney a = getBookings()[i]->getAmount();
 
+			TMoney m = getSignValueFromBookingByAccount(this, getBookings()[i]);
+			double dABS = fabs(m.getAmount());
+			char negSign = negZeichen(m);
+
+			std::cout << std::left << std::setw(9)
+					<< getBookings()[i]->getDate().toString() << " | "
+					<< std::left << std::setw(0) << negSign << std::right
+					<< std::setw(9) << dABS << " " << m.getCurrency() << " | "
+					<< std::left << std::setw(30)
+					<< getBookings()[i]->getDepitor()->getCustomer()->getName()
+					<< " | " << std::left << std::setw(14)
+					<< getBookings()[i]->getMemo() << endl;
+
+			//std::setprecision( 24 )
 			//Am Ende wurde der Kontoauszug gedruckt
 			//und die Buchung wird gekennzeichnet
 			getBookings()[i]->setPrinted(0);
 		}
 	}
+
+
+	if (bookingsAvailable == -1){
+		//Keine Buchungen vorhanden
+		cout << "keine neuen Buchungen vorhanden!\n";
+	}
+
+	std::cout << setfill('-') << std::left << std::setw(11) << "" << std::left
+			<< std::setw(17) << "|" << std::left << std::setw(33) << "|"
+			<< std::left << std::setw(14) << "|" << endl;
+
+	cout << "aktueller Kontostand: " << getAccountAmount().toString() << "\n";
+
+	cout << setfill(' ') << "\n" << flush;
 }
 
-void TAccount::print(){
+TMoney getSignValueFromBookingByAccount(TAccount* acc, TBooking* b) {
+
+	if (acc == b->getCreditor())
+		return b->getAmount();
+	else
+		return TMoney(b->getAmount().getAmount() * (-1),
+				b->getAmount().getCurrency());
+}
+
+void TAccount::print() {
 
 	//Daten des Kunden ausgeben
 	getCustomer()->print();
@@ -97,7 +170,7 @@ void TAccount::print(){
 	//Kontospezifische Daten ausgeben
 
 	cout << "Kontonr.:\t" << getAccountNumber() << "\n";
-	cout << "Anz. Buchungen:\t" << getNumberBookings() << "\n";
+	cout << "Anz. Buchungen:\t" << getBookingsCount() << "\n";
 	cout << "Kontostand:\t";
 	getAccountAmount().print();
 	cout << "\n";

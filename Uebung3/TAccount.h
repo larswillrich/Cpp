@@ -27,7 +27,6 @@ public:
 	virtual ~TAccount();
 
 	TMoney getAccountAmount() const;
-	void setAccountAmount(TMoney accountAmount);
 	char* getAccountNumber() const;
 	void setAccountNumber(char* accountNumber);
 	TCustomer* getCustomer() const;
@@ -42,6 +41,7 @@ public:
 	void setBank(TBank* bank);
 	TBooking** getBookings();
 
+	void addBooking(TBooking* b);
 	int getBookingsCount() const;
 	void printAccountStatement();
 
@@ -50,7 +50,6 @@ private:
 	TCustomer* customer;
 	char* accountNumber;
 	char* pin;
-	int numberBookings;
 	TMoney accountAmount;
 
 	//Uebung 3

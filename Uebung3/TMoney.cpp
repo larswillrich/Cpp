@@ -34,11 +34,19 @@ void TMoney::setCurrency(char* currency){
 	this->currency = currency;
 }
 
-void TMoney::addValue(int value){
+void TMoney::addValue(double value){
 	setAmount(getAmount() + value);
 }
 
+std::string TMoney::toString(){
+	char buffer [30];
+	sprintf (buffer, "%0.2f %s", getAmount(), getCurrency());
+
+	std::string ret = buffer;
+	return ret;
+}
+
 void TMoney::print(){
-	printf("%2f %s", getAmount(), getCurrency());
+	printf("%0.2f %s", getAmount(), getCurrency());
 }
 

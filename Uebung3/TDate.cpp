@@ -75,8 +75,16 @@ int TDate::getYear() const
     return year;
 }
 
+std::string TDate::toString(){
+	char buffer [10];
+	sprintf (buffer, "%02i.%02i.%04i", getDay(), getMonth(), getYear());
+
+	std::string ret = buffer;
+	return ret;
+}
+
 void TDate::print(){
-	printf("%2i.%2i.%4i", getDay(), getMonth(), getYear());
+	printf("%02i.%02i.%04i", getDay(), getMonth(), getYear());
 }
 
 TDate::~TDate() {

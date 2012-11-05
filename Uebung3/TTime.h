@@ -7,7 +7,7 @@
 
 #ifndef TTIME_H_
 #define TTIME_H_
-
+#include <string>
 class TTime {
 public:
 	TTime();
@@ -22,6 +22,7 @@ public:
 	int getSec() const;
 	//void setSec(int sec);
 	void print();
+	std::string toString();
 
 private:
 	int sec;

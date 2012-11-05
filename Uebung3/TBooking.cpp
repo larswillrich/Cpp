@@ -15,7 +15,10 @@ TBooking::TBooking(TMoney amount, TAccount* creditor, TAccount* depitor,
 	this->date = date;
 	this->time = time;
 	this->memo = memo;
-	this->printed = 0; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
+	this->printed = 1; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
+
+	creditor->addBooking(this);
+	depitor->addBooking(this);
 }
 
 TBooking::~TBooking() {

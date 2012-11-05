@@ -6,9 +6,9 @@
  */
 
 #include "TCustomer.h"
+#include <iomanip>
 
-
-TCustomer::TCustomer(char* name, TDate birthday, char* street, char* streetnumber, char* plz, char* city) : numberTAccounts(0){
+TCustomer::TCustomer(char* name, TDate birthday, char* street, char* streetnumber, char* plz, char* city) : tAccountsInCustomer(0){
 	this->street = street;
 	this->streetnumber = streetnumber;
 	this->plz = plz;
@@ -45,11 +45,11 @@ void TCustomer::setName(char* name) {
 }
 
 int TCustomer::getNumberTAccounts() const {
-	return numberTAccounts;
+	return tAccountsInCustomer;
 }
 
 void TCustomer::setNumberTAccounts(int numberTAccounts) {
-	this->numberTAccounts = numberTAccounts;
+	this->tAccountsInCustomer = numberTAccounts;
 }
 
 char* TCustomer::getPlz() const {
@@ -77,21 +77,21 @@ void TCustomer::setStreetnumber(char* streetnumber) {
 }
 
 void TCustomer::addNewAccount(TAccount* acc){
-	if (numberTAccounts >= MAXCACCOUNTS) return;
+	if (tAccountsInCustomer >= tAccountInCustomerArray_MAX) return;
 
-	tAccountArray[numberTAccounts] = acc;
-	numberTAccounts++;
+	tAccountInCustomerArray[tAccountsInCustomer] = acc;
+	tAccountsInCustomer++;
 }
 
 
 TAccount* TCustomer::getAccountByID(int id){
-	if (id > MAXCACCOUNTS || id < 0) return NULL;
+	if (id > tAccountInCustomerArray_MAX || id < 0) return NULL;
 
-	return tAccountArray[id];
+	return tAccountInCustomerArray[id];
 }
 
 void TCustomer::print(){
-	cout << "Kunde:" << "\n";
+	//cout << "Kunde:" << "\n";
 	cout << getName() << "\n";
 	cout << getStreet() << " " << getStreetnumber() << "\n";
 	cout << getPlz() << " " << getCity() << "\n";
@@ -101,9 +101,11 @@ void TCustomer::print(){
 
 	//Ausgabe Konten
 	cout << "Konten: " << "\n";
-	for (int i = 0; i < numberTAccounts ; i++) {
-		cout << "- Kontonr.: " << tAccountArray[i]->getAccountNumber() << " (Kontostand:     ";
-		tAccountArray[i]->getAccountAmount().print();
-		cout << ")";
+	for (int i = 0; i < tAccountsInCustomer ; i++) {
+		cout << "- Kontonr.: " << std::left << std::setw(12) << tAccountInCustomerArray[i]->getAccountNumber() << std::setw(12) << " (Kontostand:     ";
+		tAccountInCustomerArray[i]->getAccountAmount().print();
+		cout << ")\n";
 	}
+
+	cout << "\n";
 }

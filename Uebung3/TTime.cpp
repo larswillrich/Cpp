@@ -54,6 +54,15 @@ int TTime::getSec() const {
 	return sec;
 }
 
+std::string TTime::toString(){
+	char buffer [8];
+	sprintf (buffer, "%.2i:%.2i:%.2i", getHour(), getMin(), getSec());
+
+	std::string ret = buffer;
+	return ret;
+}
+
+
 void TTime::print() {
 	printf("%.2i:%.2i:%.2i", getHour(), getMin(), getSec());
 }
