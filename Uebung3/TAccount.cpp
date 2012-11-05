@@ -122,12 +122,13 @@ void TAccount::printAccountStatement() {
 			double dABS = fabs(m.getAmount());
 			char negSign = negZeichen(m);
 
+			TCustomer* sender = (getBookings()[i]->getDepitor()->getCustomer() == getCustomer()) ? getBookings()[i]->getCreditor()->getCustomer() : getBookings()[i]->getDepitor()->getCustomer();
 			std::cout << std::left << std::setw(9)
 					<< getBookings()[i]->getDate().toString() << " | "
 					<< std::left << std::setw(0) << negSign << std::right
 					<< std::setw(9) << dABS << " " << m.getCurrency() << " | "
 					<< std::left << std::setw(30)
-					<< getBookings()[i]->getDepitor()->getCustomer()->getName()
+					<< sender->getName()
 					<< " | " << std::left << std::setw(14)
 					<< getBookings()[i]->getMemo() << endl;
 
