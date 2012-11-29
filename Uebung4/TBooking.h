@@ -41,6 +41,7 @@ public:
 	void print();
 
 private:
+
 	TMoney amount;
 	TAccount* creditor; //Kreditor (Gläubiger von Forderungen aus L. u. L.)
 	TAccount* depitor; //Debitor (Schuldner von Forderungen aus L. u. L.)

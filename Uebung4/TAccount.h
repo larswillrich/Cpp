@@ -41,12 +41,14 @@ public:
 	void setBank(TBank* bank);
 	TBooking** getBookings();
 
-	void addBooking(TBooking* b);
+	int addBooking(TBooking* b);
+	int removeBooking(TBooking* b);
 	int getBookingsCount() const;
 	void printAccountStatement();
 
 
 private:
+
 	TCustomer* customer;
 	char* accountNumber;
 	char* pin;

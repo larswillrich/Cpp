@@ -12,7 +12,8 @@
 #include "TSavingsAccount.h"
 class TFixedDepositAccount : public TCurrentAccount, public TSavingsAccount {
 public:
-	TFixedDepositAccount();
+	TFixedDepositAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, TMoney* dispo, double* zinsSatz);
+	TFixedDepositAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin);
 	virtual ~TFixedDepositAccount();
 };
 

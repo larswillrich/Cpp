@@ -9,10 +9,18 @@
 #define TCURRENTACCOUNT_H_
 
 #include "TAccount.h"
+
 class TCurrentAccount : public TAccount {
 public:
-	TCurrentAccount();
+	TCurrentAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, TMoney* dispo);
 	virtual ~TCurrentAccount();
+	void setAccountDispoCredit(TMoney* accountDispoCredit);
+	TMoney* getAccountDispoCredit();
+
+	int addBooking(TBooking* b);
+
+private:
+	TMoney* accountDispoCredit;
 };
 
 #endif /* TCURRENTACCOUNT_H_ */

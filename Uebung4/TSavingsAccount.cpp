@@ -7,12 +7,20 @@
 
 #include "TSavingsAccount.h"
 
-TSavingsAccount::TSavingsAccount() {
-	// TODO Auto-generated constructor stub
+TSavingsAccount::TSavingsAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, double* zinsSatz) : TAccount(customer, bank, accountNumber, pin), zinsSatz(zinsSatz) {
 
 }
 
 TSavingsAccount::~TSavingsAccount() {
-	// TODO Auto-generated destructor stub
+	delete zinsSatz;
+	zinsSatz = NULL;
 }
 
+int TSavingsAccount::addBooking(TBooking* b){
+	if (b->getCreditor() == this){
+		if ((getAccountAmount().getAmount() + b->getAmount().getAmount()) < 0 ) return 1;
+	}else{
+		return TAccount::addBooking(b);
+	}
+	return 0;
+}

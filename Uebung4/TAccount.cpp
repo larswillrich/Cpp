@@ -12,8 +12,7 @@
 TMoney getSignValueFromBookingByAccount(TAccount* acc, TBooking* b);
 char negZeichen(TMoney m);
 
-TAccount::TAccount(TCustomer* customer, TBank* bank, char* accountNumber,
-		char* pin) :
+TAccount::TAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin) :
 		accountAmount(0, "EUR"), bank(bank), bookingsCount(0) {
 	this->accountNumber = accountNumber;
 	this->pin = pin;
@@ -74,9 +73,9 @@ int TAccount::getBookingsCount() const {
 	return bookingsCount;
 }
 
-void TAccount::addBooking(TBooking* b) {
+int TAccount::addBooking(TBooking* b) {
 	if (bookingsCount >= MAXBOOKING)
-		return;
+		return -1;
 
 	bookings[bookingsCount] = b;
 	bookingsCount++;
@@ -85,6 +84,20 @@ void TAccount::addBooking(TBooking* b) {
 		accountAmount.addValue(b->getAmount().getAmount());
 	else
 		accountAmount.addValue(b->getAmount().getAmount() * (-1));
+
+	return 0;
+}
+
+int TAccount::removeBooking(TBooking* b) {
+
+	if (b->getCreditor() != this)
+		accountAmount.addValue(b->getAmount().getAmount());
+	else
+		accountAmount.addValue(b->getAmount().getAmount() * (-1));
+
+	bookings[bookingsCount] = NULL;
+	bookingsCount--;
+	return 0;
 }
 
 void TAccount::printAccountStatement() {

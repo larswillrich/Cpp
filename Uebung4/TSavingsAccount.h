@@ -11,8 +11,12 @@
 #include "TAccount.h"
 class TSavingsAccount  : public TAccount {
 public:
-	TSavingsAccount();
+	TSavingsAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, double* zinsSatz);
 	virtual ~TSavingsAccount();
+
+	int addBooking(TBooking* b);
+private:
+	double* zinsSatz;
 };
 
 #endif /* TSAVINGSACCOUNT_H_ */

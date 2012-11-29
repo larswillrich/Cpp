@@ -17,8 +17,11 @@ TBooking::TBooking(TMoney amount, TAccount* creditor, TAccount* depitor,
 	this->memo = memo;
 	this->printed = 1; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
 
-	creditor->addBooking(this);
-	depitor->addBooking(this);
+	//Kreditüberlastung bei TCurrentAccount oder Nulldurchgang bei TSavingsAccount
+	if (creditor->addBooking(this) == 1 || depitor->addBooking(this) == 1){
+		return;
+	}
+
 }
 
 TBooking::~TBooking() {
