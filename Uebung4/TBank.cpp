@@ -89,6 +89,10 @@ char negZeichen(TMoney m)
 }
 
 TBank::~TBank() {
-	// TODO Auto-generated destructor stub
+	for (int i = 0;i<getAccountArrayCounter();i++){
+		TAccount* a = getAccountArray()[i];
+		a->getAccountAmount();
+		delete a;
+	}
 }
 

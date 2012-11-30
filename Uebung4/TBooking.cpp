@@ -15,7 +15,8 @@ TBooking::TBooking(TMoney amount, TAccount* creditor, TAccount* depitor,
 	this->date = date;
 	this->time = time;
 	this->memo = memo;
-	this->printed = 1; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
+	this->printed_cre = 1; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
+	this->printed_deb = 1; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
 
 	//Kreditüberlastung bei TCurrentAccount oder Nulldurchgang bei TSavingsAccount
 	if (creditor->addBooking(this) == 1 || depitor->addBooking(this) == 1){
@@ -25,7 +26,6 @@ TBooking::TBooking(TMoney amount, TAccount* creditor, TAccount* depitor,
 }
 
 TBooking::~TBooking() {
-	// TODO Auto-generated destructor stub
 }
 
 TMoney TBooking::getAmount() const {
@@ -68,12 +68,21 @@ void TBooking::setMemo(string memo) {
 	this->memo = memo;
 }
 
-int TBooking::getPrinted() const {
-	return printed;
+int TBooking::getPrinted(TAccount* acc) const{
+	if (this->getCreditor() == acc){
+		return printed_cre;
+	}else{
+		return printed_cre;
+	}
 }
 
-void TBooking::setPrinted(int printed) {
-	this->printed = printed;
+void TBooking::setPrinted(int printed_cre, TAccount* acc){
+	if (this->getDepitor() == acc){
+		this->printed_cre = printed_deb;
+	}else{
+		this->printed_cre = printed_deb;
+	}
+
 }
 
 TTime TBooking::getTime() const {

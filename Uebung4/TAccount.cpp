@@ -26,7 +26,16 @@ TAccount::TAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* 
 	bank->addAccount(this);
 }
 
+void TAccount::printLastMessage(string klasse, string kontenart){
+	klasse += ":";
+	cout << std::left << std::setw(25) << klasse << std::setw(20) << kontenart << "(KtoNr. " << getAccountNumber() << ") wird vernichtet!" << endl;
+}
+
 TAccount::~TAccount() {
+	printLastMessage("TAccount", "Konto");
+	for (int i = 0;i<getBookingsCount();i++){
+		delete getBookings()[i];
+	}
 }
 
 TMoney TAccount::getAccountAmount() const {
@@ -125,7 +134,7 @@ void TAccount::printAccountStatement() {
 	int bookingsAvailable = -1;
 	for (int i = 0; i < getBookingsCount(); i++) {
 
-		if (getBookings()[i]->getPrinted() != 0) {
+		if (getBookings()[i]->getPrinted(this) != 0) {
 			bookingsAvailable = 0;
 			//Kontoauszug...
 
@@ -148,7 +157,7 @@ void TAccount::printAccountStatement() {
 			//std::setprecision( 24 )
 			//Am Ende wurde der Kontoauszug gedruckt
 			//und die Buchung wird gekennzeichnet
-			getBookings()[i]->setPrinted(0);
+			getBookings()[i]->setPrinted(0, this);
 		}
 	}
 
@@ -164,7 +173,7 @@ void TAccount::printAccountStatement() {
 
 	cout << "aktueller Kontostand: " << getAccountAmount().toString() << "\n";
 
-	cout << setfill(' ') << "\n" << flush;
+	cout << setfill(' ') << flush;
 }
 
 TMoney getSignValueFromBookingByAccount(TAccount* acc, TBooking* b) {

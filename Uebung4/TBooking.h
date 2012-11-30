@@ -33,8 +33,8 @@ public:
 	void setDepitor(TAccount* depitor);
 	string getMemo() const;
 	void setMemo(string memo);
-	int getPrinted() const;
-	void setPrinted(int printed);
+	int getPrinted(TAccount* acc) const;
+	void setPrinted(int printed_cre, TAccount* acc);
 	TTime getTime() const;
 	void setTime(TTime time);
 
@@ -48,7 +48,8 @@ private:
 	TDate date;
 	TTime time;
 	string memo;
-	int printed; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
+	int printed_deb; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
+	int printed_cre; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
 };
 
 #endif /* TBOOKING_H_ */

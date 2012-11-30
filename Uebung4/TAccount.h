@@ -36,7 +36,7 @@ public:
 	char* getPin() const;
 	void setPin(char* pin);
 	void print();
-
+	void printLastMessage(string klasse, string kontenart);
 	TBank* getBank() const;
 	void setBank(TBank* bank);
 	TBooking** getBookings();
@@ -44,7 +44,7 @@ public:
 	int addBooking(TBooking* b);
 	int removeBooking(TBooking* b);
 	int getBookingsCount() const;
-	void printAccountStatement();
+	virtual void printAccountStatement();
 
 
 private:

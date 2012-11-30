@@ -6,13 +6,14 @@
  */
 
 #include "TCurrentAccount.h"
-
+#include <iomanip>
 TCurrentAccount::TCurrentAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, TMoney* dispo ) : TAccount(customer, bank, accountNumber, pin), accountDispoCredit(dispo) {
 
 
 }
 
 TCurrentAccount::~TCurrentAccount() {
+	TAccount::printLastMessage("TCurrentAccount", "Girokonto");
 	delete accountDispoCredit;
 	accountDispoCredit = NULL;
 }
@@ -32,4 +33,18 @@ int TCurrentAccount::addBooking(TBooking* b){
 		return TAccount::addBooking(b);
 	}
 	return 0;
+}
+
+void TCurrentAccount::printAccountStatement(){
+	TAccount::printAccountStatement();
+	std::cout << "max. Dispo: ";
+	TCurrentAccount::getAccountDispoCredit()->print();
+	std::cout << endl;
+}
+
+void TCurrentAccount::print(){
+	TAccount::print();
+	std::cout << "max. Dispo: ";
+	TCurrentAccount::getAccountDispoCredit()->print();
+	std::cout << endl;
 }
