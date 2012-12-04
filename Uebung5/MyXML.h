@@ -11,6 +11,7 @@
 #include <list>
 
 using namespace std;
+
 class MyXML {
 public:
 	MyXML();
@@ -22,12 +23,14 @@ public:
 	void setTagValue(string tagValue);
 	bool isBranch() const;
 	void addXMLTag(MyXML* x);
-
+	void print();
+	list<MyXML*> getList();
+	void setList(list<MyXML*> l);
 	MyXML* operator[](int index){
 
 		int counter = 0;
 		list<MyXML*>::iterator i;
-		for (i = ListOfInternBranch.begin(); i != ListOfInternBranch.end(); ++i){
+		for (i = listOfInternBranch.begin(); i != listOfInternBranch.end(); ++i){
 			if (counter == index) return *i;
 			counter++;
 		}
@@ -36,7 +39,7 @@ public:
 	}
 
 private:
-	list<MyXML*> ListOfInternBranch;
+	list<MyXML*> listOfInternBranch;
 	string tagValue;
 	string tagContent;
 };

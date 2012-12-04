@@ -21,7 +21,11 @@ class TTransactionList {
 public:
 	TTransactionList(char* path);
 	virtual ~TTransactionList();
-	void travers(string::iterator* it_p, string* s, int* depth);
+	MyXML* travers(string::iterator* it_p, string* s, int* depth);
+	string travers_takeBeginningTag(string::iterator** it_p);
+	string travers_takeTagValue(string::iterator** it_p);
+	string travers_takeClosedTAg(string::iterator** it_p);
+
 private:
 	vector<TTransaction*> myTransactionVector;
 };

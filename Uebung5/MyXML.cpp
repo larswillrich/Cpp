@@ -6,9 +6,9 @@
  */
 
 #include "MyXML.h"
-
+#include <iostream>
+#include <iomanip>
 MyXML::MyXML() {
-	// TODO Auto-generated constructor stub
 
 }
 
@@ -32,10 +32,27 @@ void MyXML::setTagValue(string tagValue) {
 	this->tagValue = tagValue;
 }
 bool  MyXML::isBranch() const{
-	return ListOfInternBranch.size() > 0;
+	return listOfInternBranch.size() > 0;
 }
 void  MyXML::addXMLTag(MyXML* x){
-	ListOfInternBranch.push_back(x);
+	listOfInternBranch.push_back(x);
+}
+list<MyXML*> MyXML::getList(){
+	return listOfInternBranch;
+}
+void MyXML::setList(list<MyXML*> l){
+	listOfInternBranch = l;
 }
 
+void MyXML::print(){
+	//MyXML* a = ListOfInternBranch.pop_back();
+	cout << tagValue << ": ";
+	cout << tagContent << endl;
+	list<MyXML*>::iterator i;
 
+	for (i = listOfInternBranch.begin(); i != listOfInternBranch.end(); ++i){
+		MyXML* tmp = *i;
+		if (tmp == NULL) return;
+		tmp->print();
+	}
+}

@@ -9,68 +9,86 @@
 #include <iostream>
 #include <iomanip>
 
-void TTransactionList::travers(string::iterator* it_p, string* s, int* depth) {
-	MyXML m;
+string travers_takeBeginningTag(string::iterator* it_p);
+string travers_takeTagValue(string::iterator* it_p);
+string travers_takeClosedTAg(string::iterator* it_p);
+MyXML* TTransactionList::travers(string::iterator* it_p, string* s, int* depth) {
+	MyXML* r = new MyXML();
 
 	string::iterator* it = it_p;
-	//for (; it != s->end(); ++it) {
-	//while(counter != 0){
-	//New TagName
-	//TagName
-	//-----------------------
 
 	while (*(*it) == '<') {
+		MyXML* m = new MyXML();
+		//TagName
+		//====================
 		string tagName = "";
 		++(*it);
 
-		for (; *(*it) != '>'; ++(*it)) {
+		for (; *(*it) != '>'; ++(*it))
 			tagName += *(*it);
-		}
 
-		if (*(*it) == '>') {
-			cout  <<  setw(*depth * 3) << "" << "<" << tagName << ">" << endl;
-			++(*it);
-		}
-		//-----------------------
+		//cout << setw(*depth * 3) << "" << "<" << tagName << ">";
+		m->setTagValue(tagName);
+		++(*it);
+		//====================
+
 
 		//Beginning further Tags
+		//====================
 		int travers = -1;
 		if (*(*it) == '<') {
 
-			this->travers(it, s, &(++(*depth)));
+		//	cout << endl;
+			MyXML* mt = this->travers(it, s, &(++(*depth)));
+			//mt->print();
+			//cout << endl;
+			m->addXMLTag(mt);
+			//m->setList(mt->getList());
 			travers = 0;
-			//continue;
-			//Tag- Value
 		}
+		//====================
 
+
+		//Take TagValue
+		//====================
 		string tagValue = "";
 		for (; *(*it) != '<'; ++(*it)) {
 			tagValue += *(*it);
 		}
-		if (travers == -1)
-			cout << setw(*depth * 4) << "" << tagValue << endl;
 
-		if (*(*it) == '<' && *(++(*it)) == '/') {
-			(*it)++;
+
+		if (travers == -1){
+			m->setTagContent(tagValue);
+			//cout << tagValue;
 		}
+		*it = *it + 2;
+		//====================
 
+
+		//Closed Tag
+		//====================
 		string tagName2 = "";
 		for (; *(*it) != '>'; ++(*it)) {
 			tagName2 += *(*it);
 		}
-		if (*(*it) == '>') {
-			cout << setw(*depth * 3) << "" << "</" << tagName2 << ">" << endl;
-			++(*it);
-		}
+
+		//if (travers == -1)
+		//	cout << "</" << tagName2 << ">" << endl;
+		//else
+		//	cout << setw(*depth * 3) << "" << "</" << tagName2 << ">" << endl;
+		++(*it);
+		//====================
+
 		if (*(*it) == '<' && *((*it) + 1) == '/') {
 			*depth = *depth - 1;
-			return;
+			r->addXMLTag(m);
+			return r;
 		}
+		r->addXMLTag(m);
+		//r->print();
 	}
 
-	//Have to be the same as 'tagName'
-	//End TagEnd
-	//}
+	return r;
 }
 
 TTransactionList::TTransactionList(char* path) {
@@ -87,8 +105,19 @@ TTransactionList::TTransactionList(char* path) {
 	myFile.close();
 	string::iterator it = completeContent.begin();
 	int depth = 1;
-	travers(&it, &completeContent, &depth);
+	MyXML* transactionList = travers(&it, &completeContent, &depth);
 
+	transactionList->print();
+
+/*
+	transactionList->getTagContent();
+	MyXML* transaction = (*transactionList)[0];
+	transaction->getTagContent();
+	MyXML* a1 = (*transaction)[0];
+	a1->getTagContent();
+
+	MyXML* a2 = (*transaction)[1];
+	a2->getTagContent();*/
 	//myTransactionVector.push_back(t);
 }
 
