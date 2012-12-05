@@ -9,17 +9,21 @@
 #define TBANK_H_
 class TAccount;
 #include "TAccount.h"
+#include <string>
+
 #define tAccountInBankArray_MAX 10
+
+using namespace std;
 class TBank {
 public:
-	TBank(char* name, char* blz);
+	TBank(string name, string blz);
 	virtual ~TBank();
 
 	int getAccountArrayCounter() const;
-	char* getBlz() const;
-	void setBlz(char* blz);
-	char* getName() const;
-	void setName(char* name);
+	string getBLZ() const;
+	void setBLZ(string blz);
+	string getName() const;
+	void setName(string name);
 	TAccount** getAccountArray();
 	void addAccount(TAccount* acc);
 
@@ -27,8 +31,8 @@ public:
 
 private:
 
-	char* name;
-	char* blz;
+	string name;
+	string blz;
 	TAccount* tAccountInBankArray[tAccountInBankArray_MAX];
 	int accountsInBank_counter;
 };

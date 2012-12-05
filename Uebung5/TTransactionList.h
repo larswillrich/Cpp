@@ -22,9 +22,19 @@ public:
 	TTransactionList(char* path);
 	virtual ~TTransactionList();
 	MyXML* travers(string::iterator* it_p, string* s, int* depth);
-	string travers_takeBeginningTag(string::iterator** it_p);
-	string travers_takeTagValue(string::iterator** it_p);
-	string travers_takeClosedTAg(string::iterator** it_p);
+	int getTransactionsCount();
+
+	TTransaction operator[](int index){
+
+		int counter = 0;
+		vector<TTransaction*>::iterator i;
+		for (i = myTransactionVector.begin(); i != myTransactionVector.end(); ++i){
+			if (counter == index) return **i;
+			counter++;
+		}
+
+		return *(new TTransaction());
+	}
 
 private:
 	vector<TTransaction*> myTransactionVector;

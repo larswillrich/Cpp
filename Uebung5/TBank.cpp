@@ -13,30 +13,30 @@
 
 char negZeichen(TMoney m);
 
-TBank::TBank(char* name, char* blz) :
+TBank::TBank(string name, string blz) :
 		accountsInBank_counter(0) {
 
 	this->setName(name);
-	this->setBlz(blz);
+	this->setBLZ(blz);
 }
 
 int TBank::getAccountArrayCounter() const {
 	return accountsInBank_counter;
 }
 
-char* TBank::getBlz() const {
+string TBank::getBLZ() const {
 	return blz;
 }
 
-void TBank::setBlz(char* blz) {
+void TBank::setBLZ(string blz) {
 	this->blz = blz;
 }
 
-char* TBank::getName() const {
+string TBank::getName() const {
 	return name;
 }
 
-void TBank::setName(char* name) {
+void TBank::setName(string name) {
 	this->name = name;
 }
 
@@ -54,7 +54,7 @@ void TBank::addAccount(TAccount* acc) {
 
 void TBank::print() {
 	cout << getName();
-	cout << "BLZ " << getBlz() << "\n";
+	cout << "BLZ " << getBLZ() << "\n";
 	cout << "Anzahl Konten: " << getAccountArrayCounter() << "\n";
 	cout << "Kontenliste: \n";
 
@@ -69,27 +69,35 @@ void TBank::print() {
 			<< std::setw(33) << "|" << std::left << std::setw(17) << "|"
 			<< std::left << std::setw(17) << "|" << "\n";
 
-	for (int i = 0;i<getAccountArrayCounter();i++){
-		std::cout << setfill(' ') << std::right << std::setw(12) << tAccountInBankArray[i]->getAccountNumber()
-		  	    << "| "<< std::left << std::setw(31) << tAccountInBankArray[i]->getCustomer()->getName()
-				<< std::left << std::setw(15) << "|" << tAccountInBankArray[i]->getBookingsCount()
-				<< std::left << std::setw(0) << " | " << negZeichen(tAccountInBankArray[i]->getAccountAmount())
-				<< std::right << std::setw(10) << setiosflags(ios::fixed) <<setprecision(2) << fabs(tAccountInBankArray[i]->getAccountAmount().getAmount())
-				<< " " << tAccountInBankArray[i]->getAccountAmount().getCurrency() << "\n";
+	for (int i = 0; i < getAccountArrayCounter(); i++) {
+		std::cout << setfill(' ') << std::right << std::setw(12)
+				<< tAccountInBankArray[i]->getAccountNumber() << "| "
+				<< std::left << std::setw(31)
+				<< tAccountInBankArray[i]->getCustomer()->getName() << std::left
+				<< std::setw(15) << "|"
+				<< tAccountInBankArray[i]->getBookingsCount() << std::left
+				<< std::setw(0) << " | "
+				<< negZeichen(tAccountInBankArray[i]->getAccountAmount())
+				<< std::right << std::setw(10) << setiosflags(ios::fixed)
+				<< setprecision(2)
+				<< fabs(tAccountInBankArray[i]->getAccountAmount().getAmount())
+				<< " "
+				<< tAccountInBankArray[i]->getAccountAmount().getCurrency()
+				<< "\n";
 
 	}
 
 	cout << "\n" << flush;
 }
 
-char negZeichen(TMoney m)
-{
-	if (m.getAmount() < .0) return '-';
+char negZeichen(TMoney m) {
+	if (m.getAmount() < .0)
+		return '-';
 	return ' ';
 }
 
 TBank::~TBank() {
-	for (int i = 0;i<getAccountArrayCounter();i++){
+	for (int i = 0; i < getAccountArrayCounter(); i++) {
 		TAccount* a = getAccountArray()[i];
 		a->getAccountAmount();
 		delete a;

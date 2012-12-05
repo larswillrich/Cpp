@@ -11,12 +11,12 @@
 #include <string>
 class TMoney {
 public:
-	TMoney(double amount, char* currency = "EUR");
+	TMoney(double amount, const char* currency = "EUR");
 	virtual ~TMoney();
 	void setAmount(double amount);
 	double getAmount();
-	void setCurrency(char* currency);
-	char* getCurrency();
+	void setCurrency(const char* currency);
+	const char* getCurrency();
 	std::string toString();
 	//Geldbetrag manipulieren
 	void addValue(double value);
@@ -25,7 +25,7 @@ public:
 
 private:
 	double amount;
-	char* currency;
+	const char* currency;
 };
 
 #endif /* TMONEY_H_ */

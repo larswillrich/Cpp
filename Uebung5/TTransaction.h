@@ -8,32 +8,35 @@
 #ifndef TTRANSACTION_H_
 #define TTRANSACTION_H_
 #include "TMoney.h"
+#include <string>
 
+using namespace std;
 class TTransaction {
 public:
 	TTransaction();
 	virtual ~TTransaction();
 
-	char* getAccountNr() const;
-	void setAccountNr(char* accountNr);
-	char* getBLz() const;
-	void setBLz(char* blz);
-	char* getContraAccountNr() const;
-	void setContraAccountNr(char* contraAccountNr);
-	char* getContraBlz() const;
-	void setContraBlz(char* contraBlz);
-	char* getText() const;
-	void setText(char* text);
+	string getAccountNr() const;
+	void setAccountNr(string accountNr);
+	string getBLZ() const;
+	void setBLZ(string blz);
+	string getContraAccountNr() const;
+	void setContraAccountNr(string contraAccountNr);
+	string getContraBlz() const;
+	void setContraBlz(string contraBlz);
+	string getText() const;
+	void setText(string text);
 	TMoney* getAmount() const;
 	void setAmount(TMoney* amount);
 
+
 private:
-	char* accountNr;
-	char* bLZ;
-	char* contraBLZ;
-	char* contraAccountNr;
+	string accountNr;
+	string bLZ;
+	string contraBLZ;
+	string contraAccountNr;
 	TMoney* amount;
-	char* text;
+	string text;
 };
 
 #endif /* TTRANSACTION_H_ */

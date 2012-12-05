@@ -9,6 +9,8 @@
 #define MYXML_H_
 #include <string>
 #include <list>
+#include <vector>
+#include "TTransaction.h"
 
 using namespace std;
 
@@ -26,6 +28,7 @@ public:
 	void print();
 	list<MyXML*> getList();
 	void setList(list<MyXML*> l);
+	vector<TTransaction*>* toTransactionVector();
 	MyXML* operator[](int index){
 
 		int counter = 0;

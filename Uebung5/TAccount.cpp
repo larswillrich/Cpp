@@ -117,7 +117,7 @@ void TAccount::printAccountStatement() {
 	TDate d_current;
 
 	cout << "Kontoauszug vom " << d_current.toString() << "; " << t_current.toString() << "\n";
-	cout << "Kontonr.: " << getAccountNumber() << "; BLZ " << getBank()->getBlz() << "\n";
+	cout << "Kontonr.: " << getAccountNumber() << "; BLZ " << getBank()->getBLZ() << "\n";
 	cout << "Kontoinhaber: " << getCustomer()->getName() << "\n";
 
 	std::cout << std::left << std::setw(11) << "Datum" << std::left

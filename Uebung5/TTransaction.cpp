@@ -16,43 +16,43 @@ TTransaction::~TTransaction() {
 	// TODO Auto-generated destructor stub
 }
 
-char* TTransaction::getAccountNr() const {
+string TTransaction::getAccountNr() const {
 	return accountNr;
 }
 
-void TTransaction::setAccountNr(char* accountNr) {
+void TTransaction::setAccountNr(string accountNr) {
 	this->accountNr = accountNr;
 }
 
-char* TTransaction::getBLz() const {
+string TTransaction::getBLZ() const {
 	return bLZ;
 }
 
-void TTransaction::setBLz(char* blz) {
+void TTransaction::setBLZ(string blz) {
 	bLZ = blz;
 }
 
-char* TTransaction::getContraAccountNr() const {
+string TTransaction::getContraAccountNr() const {
 	return contraAccountNr;
 }
 
-void TTransaction::setContraAccountNr(char* contraAccountNr) {
+void TTransaction::setContraAccountNr(string contraAccountNr) {
 	this->contraAccountNr = contraAccountNr;
 }
 
-char* TTransaction::getContraBlz() const {
+string TTransaction::getContraBlz() const {
 	return contraBLZ;
 }
 
-void TTransaction::setContraBlz(char* contraBlz) {
+void TTransaction::setContraBlz(string contraBlz) {
 	contraBLZ = contraBlz;
 }
 
-char* TTransaction::getText() const {
+string TTransaction::getText() const {
 	return text;
 }
 
-void TTransaction::setText(char* text) {
+void TTransaction::setText(string text) {
 	this->text = text;
 }
 

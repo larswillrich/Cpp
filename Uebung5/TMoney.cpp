@@ -10,7 +10,7 @@
 #include <stdio.h>
 using namespace std;
 
-TMoney::TMoney(double amount, char* currency) {
+TMoney::TMoney(double amount, const char* currency) {
 	this->amount = amount;
 	this->currency = currency;
 }
@@ -26,11 +26,11 @@ void TMoney::setAmount(double amount){
 	this->amount = amount;
 }
 
-char* TMoney::getCurrency(){
+const char* TMoney::getCurrency(){
 	return currency;
 }
 
-void TMoney::setCurrency(char* currency){
+void TMoney::setCurrency(const char* currency){
 	this->currency = currency;
 }
 
