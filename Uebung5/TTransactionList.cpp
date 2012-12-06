@@ -9,7 +9,8 @@
 #include <iostream>
 #include <iomanip>
 
-MyXML* TTransactionList::travers(string::iterator* it_p, string* s, int* depth) {
+MyXML* TTransactionList::travers(string::iterator* it_p, string* s,
+		int* depth) {
 	MyXML* r = new MyXML();
 
 	string::iterator* it = it_p;
@@ -29,7 +30,6 @@ MyXML* TTransactionList::travers(string::iterator* it_p, string* s, int* depth) 
 		++(*it);
 		//====================
 
-
 		//Beginning further Tags
 		//====================
 		int travers = -1;
@@ -38,11 +38,9 @@ MyXML* TTransactionList::travers(string::iterator* it_p, string* s, int* depth) 
 			MyXML* mt = this->travers(it, s, &(++(*depth)));
 			m->setList(mt->getList());
 
-
 			travers = 0;
 		}
 		//====================
-
 
 		//Take TagValue
 		//====================
@@ -50,17 +48,16 @@ MyXML* TTransactionList::travers(string::iterator* it_p, string* s, int* depth) 
 		for (; *(*it) != '<'; ++(*it))
 			tagValue += *(*it);
 
-
 		if (travers == -1)
 			m->setTagContent(tagValue);
 
 		*it = *it + 2;
 		//====================
 
-
 		//Closed Tag
 		//====================
-		for (; *(*it) != '>'; ++(*it));
+		for (; *(*it) != '>'; ++(*it))
+			;
 
 		++(*it);
 		//====================
@@ -78,6 +75,8 @@ MyXML* TTransactionList::travers(string::iterator* it_p, string* s, int* depth) 
 
 TTransactionList::TTransactionList(char* path) {
 
+	setDate(TDate());
+	setTime(TTime());
 	string completeContent = "";
 	string line;
 
@@ -95,13 +94,49 @@ TTransactionList::TTransactionList(char* path) {
 	//(*transactionList)[0]->print();
 
 	vector<TTransaction*>* v = (*transactionList)[0]->toTransactionVector();
+	this->myTransactionVector = *v;
 }
 
 TTransactionList::~TTransactionList() {
 	// TODO Auto-generated destructor stub
 }
 
-int TTransactionList::getTransactionsCount(){
+TDate TTransactionList::getDate() {
+	return date;
+}
+TTime TTransactionList::getTime() {
+	return time;
+}
+void TTransactionList::setDate(TDate d) {
+	this->date = d;
+}
+void TTransactionList::setTime(TTime t) {
+	this->time = t;
+}
+
+vector<TTransaction*> TTransactionList::getTransactions(){
+	return myTransactionVector;
+}
+
+int TTransactionList::getTransactionsCount() {
 	return this->myTransactionVector.size();
 }
+
+ostream& operator<<(ostream & out, TTransactionList tl){
+
+	vector<TTransaction*>::iterator transaction_it;
+
+	for (int i = 0;i<tl.getTransactionsCount();i++){
+		out << std::setfill(' ') << "Transaction Nr. " << i+1 << endl;
+		out  << std::left << std::setw(18) << "AccountNr =" << std::setw(18)   << tl[i].getAccountNr() << endl;
+		out   << std::left << std::setw(18) << "BLZ ="  << std::setw(18)  << tl[i].getBLZ() << endl;
+		out  << std::left << std::setw(18)<< "ContraAccountNr ="  << std::setw(18)  << tl[i].getContraAccountNr() << endl;
+		out  << std::left << std::setw(18)<< "ContraBLZ ="  << std::setw(18)  << tl[i].getContraBLZ() << endl;
+		out  << std::left << std::setw(18)<< "Amount =" << *(tl[i].getAmount()) << endl;
+		out  << std::left << std::setw(18)<< "Text ="  << std::setw(18)  << tl[i].getText()  << "\n" << endl;
+	}
+
+	return out;
+}
+
 

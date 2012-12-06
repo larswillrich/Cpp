@@ -1,13 +1,13 @@
-#include <iostream>
 using namespace std;
-#include "tdate.h"
-#include "tmoney.h"
-#include "tcustomer.h"
-#include "tbank.h"
-#include "taccount.h"
-#include "tbooking.h"
-#include "ttransaction.h"
-#include "Ttransactionlist.h"
+#include <iostream>
+#include "TDate.h"
+#include "TMoney.h"
+#include "TCustomer.h"
+#include "TBank.h"
+#include "TAccount.h"
+#include "TBooking.h"
+#include "TTransaction.h"
+#include "TTransactionlist.h"
 #include "TCurrentAccount.h"
 #include "TSavingsAccount.h"
 #include "TFixedDepositAccount.h"
@@ -38,7 +38,8 @@ int main() {
 	TAccount *Konto4 = new TCurrentAccount(&Kunde3, Bank2, "999777555", "4444",
 			new TMoney(200.0));
 	TTransactionList TL(Dateiname);
-	/*for (unsigned i = 0; i < TL.getTransactionsCount(); i++) {
+	cout << TL << endl;
+	for (unsigned i = 0; i < TL.getTransactionsCount(); i++) {
 		TAccount *Konto = NULL, *Gegenkonto = NULL;
 		Konto = NULL;
 		Bank = getBank(Bank1, Bank2, TL[i].getBLZ());
@@ -49,22 +50,24 @@ int main() {
 		if (Bank)
 			Gegenkonto = Bank1->getAccount(TL[i].getContraAccountNr());
 		if (Konto && Gegenkonto)
-			TBooking *Buchung = new TBooking(TL[i].getAmount(), Konto,
+			TBooking *Buchung = new TBooking(*(TL[i].getAmount()), Konto,
 					Gegenkonto, TL.getDate(), TL.getTime(), TL[i].getText());
-	}*//*
+	}
+
 // Ausgaben:
 	cout << "Transaktionsliste:" << endl << TL << endl;
 	cout << "Kunde 1:" << endl << Kunde1 << endl;
 	cout << "Kunde 2:" << endl << Kunde2 << endl;
 	cout << "Kunde 3:" << endl << Kunde3 << endl;
+
 	cout << "Bank 1: " << endl << *Bank1 << endl;
-	cout << "Bank 2: " << endl << *Bank2 << endl;
+	//cout << "Bank 2: " << endl << *Bank2 << endl;
 	for (int i = 0; i < Bank1->getAccountCounter(); i++) {
-		(Bank1->getAccount(i))->printAccountStatement();
+		(Bank1->getAccountByID(i))->printAccountStatement();
 		cout << endl;
 	}
 	for (int i = 0; i < Bank2->getAccountCounter(); i++) {
-		(Bank2->getAccount(i))->printAccountStatement();
+		(Bank2->getAccountByID(i))->printAccountStatement();
 		cout << endl;
 	}
 	cout
@@ -72,7 +75,7 @@ int main() {
 			<< endl;
 	delete Bank1;
 	delete Bank2;
-	return 0;*/
+	return 0;
 }
 TBank *getBank(TBank *B1, TBank *B2, string BLZ) {
 	if ((B1->getBLZ()).compare(BLZ) == 0)
@@ -81,3 +84,4 @@ TBank *getBank(TBank *B1, TBank *B2, string BLZ) {
 		return B2;
 	return NULL;
 }
+

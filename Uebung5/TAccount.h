@@ -22,24 +22,25 @@ using namespace std;
 
 class TAccount {
 public:
-	TAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin);
+	TAccount(TCustomer* customer, TBank* bank, string accountNumber, string pin);
 
 	virtual ~TAccount();
 
 	TMoney getAccountAmount() const;
-	char* getAccountNumber() const;
-	void setAccountNumber(char* accountNumber);
+	string getAccountNumber() const;
+	void setAccountNumber(string accountNumber);
 	TCustomer* getCustomer() const;
 	void setCustomer(TCustomer* customer);
 	int getNumberBookings() const;
 	void setNumberBookings(int numberBookings);
-	char* getPin() const;
-	void setPin(char* pin);
+	string getPin() const;
+	void setPin(string pin);
 	void print();
 	void printLastMessage(string klasse, string kontenart);
 	TBank* getBank() const;
 	void setBank(TBank* bank);
 	TBooking** getBookings();
+	char negZeichen(TMoney m);
 
 	int addBooking(TBooking* b);
 	int removeBooking(TBooking* b);
@@ -50,8 +51,8 @@ public:
 private:
 
 	TCustomer* customer;
-	char* accountNumber;
-	char* pin;
+	string accountNumber;
+	string pin;
 	TMoney accountAmount;
 
 	//Uebung 3

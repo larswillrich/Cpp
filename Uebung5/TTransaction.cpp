@@ -40,11 +40,11 @@ void TTransaction::setContraAccountNr(string contraAccountNr) {
 	this->contraAccountNr = contraAccountNr;
 }
 
-string TTransaction::getContraBlz() const {
+string TTransaction::getContraBLZ() const {
 	return contraBLZ;
 }
 
-void TTransaction::setContraBlz(string contraBlz) {
+void TTransaction::setContraBLZ(string contraBlz) {
 	contraBLZ = contraBlz;
 }
 

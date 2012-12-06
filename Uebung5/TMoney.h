@@ -9,6 +9,9 @@
 #define TMONEY_H_
 
 #include <string>
+#include <iostream>
+#include <iomanip>
+using namespace std;
 class TMoney {
 public:
 	TMoney(double amount, const char* currency = "EUR");
@@ -20,7 +23,7 @@ public:
 	std::string toString();
 	//Geldbetrag manipulieren
 	void addValue(double value);
-
+	friend ostream& operator<<(ostream & out, TMoney m);
 	void print();
 
 private:

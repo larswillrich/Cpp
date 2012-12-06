@@ -11,13 +11,11 @@ TSavingsAccount::TSavingsAccount(TCustomer* customer, TBank* bank,
 		char* accountNumber, char* pin, double zinsSatz) :
 		TAccount(customer, bank, accountNumber, pin) {
 
-	this->zinsSatz = &zinsSatz;
+	this->zinsSatz = zinsSatz;
 }
 
 TSavingsAccount::~TSavingsAccount() {
 	TAccount::printLastMessage("TSavingsAccount", "Sparbuchkonto");
-	delete zinsSatz;
-	zinsSatz = NULL;
 }
 
 int TSavingsAccount::addBooking(TBooking* b) {
@@ -30,16 +28,16 @@ int TSavingsAccount::addBooking(TBooking* b) {
 	return 0;
 }
 
-double* TSavingsAccount::getZinsSatz() {
+double TSavingsAccount::getZinsSatz() {
 	return zinsSatz;
 }
-void TSavingsAccount::setZinsSatz(double* zinsSatz) {
+void TSavingsAccount::setZinsSatz(double zinsSatz) {
 	this->zinsSatz = zinsSatz;
 }
 
 void TSavingsAccount::printAccountStatement(){
 	TAccount::printAccountStatement();
-	cout << "Zinssatz: " << *(TSavingsAccount::getZinsSatz()) << " %";
+	cout << "Zinssatz: " << TSavingsAccount::getZinsSatz() << " %";
 	std::cout << endl;
 }
 

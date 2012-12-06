@@ -14,13 +14,13 @@ public:
 	TSavingsAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, double zinsSatz);
 	virtual ~TSavingsAccount();
 	void printAccountStatement();
-	double* getZinsSatz();
-	void setZinsSatz(double* zinsSatz);
+	double getZinsSatz();
+	void setZinsSatz(double zinsSatz);
 	void print();
 
 	int addBooking(TBooking* b);
 private:
-	double* zinsSatz;
+	double zinsSatz;
 };
 
 #endif /* TSAVINGSACCOUNT_H_ */

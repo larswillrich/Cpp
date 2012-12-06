@@ -13,6 +13,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "TDate.h"
+#include "TTime.h"
 #include "MyXML.h"
 #include "TMoney.h"
 
@@ -23,7 +25,12 @@ public:
 	virtual ~TTransactionList();
 	MyXML* travers(string::iterator* it_p, string* s, int* depth);
 	int getTransactionsCount();
-
+	TDate getDate();
+	TTime getTime();
+	void setDate(TDate d);
+	void setTime(TTime t);
+	vector<TTransaction*> getTransactions();
+	friend ostream& operator<<(ostream & out, TTransactionList tl);
 	TTransaction operator[](int index){
 
 		int counter = 0;
@@ -38,6 +45,8 @@ public:
 
 private:
 	vector<TTransaction*> myTransactionVector;
+	TDate date;
+	TTime time;
 };
 
 #endif /* TTRANSACTIONLIST_H_ */

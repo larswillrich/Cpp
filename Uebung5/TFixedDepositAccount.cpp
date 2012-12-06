@@ -9,6 +9,7 @@
 #include <iomanip>
 TFixedDepositAccount::TFixedDepositAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin, TMoney* dispo, double zinsSatz)
 	: TSavingsAccount(customer, bank, accountNumber, pin, zinsSatz),  TCurrentAccount(customer, bank, accountNumber, pin, dispo), TCurrentAccount::TAccount(customer, bank, accountNumber, pin) {
+	this->setZinsSatz(zinsSatz);
 }
 
 TFixedDepositAccount::TFixedDepositAccount(TCustomer* customer, TBank* bank, char* accountNumber, char* pin)
@@ -24,7 +25,7 @@ void TFixedDepositAccount::printAccountStatement(){
 	std::cout << "max. Dispo: ";
 	TCurrentAccount::getAccountDispoCredit()->print();
 	std::cout << endl;
-	cout << "Zinssatz: " << *(TSavingsAccount::getZinsSatz()) << " %";
+	cout << "Zinssatz: " << TSavingsAccount::getZinsSatz() << " %";
 	std::cout << endl;
 }
 

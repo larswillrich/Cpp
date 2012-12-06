@@ -8,7 +8,8 @@
 #include "TBooking.h"
 
 TBooking::TBooking(TMoney amount, TAccount* creditor, TAccount* depitor,
-		TDate date, TTime time, string memo): amount(amount) {
+		TDate date, TTime time, string memo) :
+		amount(amount) {
 
 	this->creditor = creditor;
 	this->depitor = depitor;
@@ -19,7 +20,7 @@ TBooking::TBooking(TMoney amount, TAccount* creditor, TAccount* depitor,
 	this->printed_deb = 1; //0 wahr, anderes: falsch.... ausgedruckt = true = 0
 
 	//Kreditüberlastung bei TCurrentAccount oder Nulldurchgang bei TSavingsAccount
-	if (creditor->addBooking(this) == 1 || depitor->addBooking(this) == 1){
+	if (creditor->addBooking(this) == 1 || depitor->addBooking(this) == 1) {
 		return;
 	}
 
@@ -68,18 +69,18 @@ void TBooking::setMemo(string memo) {
 	this->memo = memo;
 }
 
-int TBooking::getPrinted(TAccount* acc) const{
-	if (this->getCreditor() == acc){
+int TBooking::getPrinted(TAccount* acc) const {
+	if (this->getCreditor() == acc) {
 		return printed_cre;
-	}else{
+	} else {
 		return printed_cre;
 	}
 }
 
-void TBooking::setPrinted(int printed_cre, TAccount* acc){
-	if (this->getDepitor() == acc){
+void TBooking::setPrinted(int printed_cre, TAccount* acc) {
+	if (this->getDepitor() == acc) {
 		this->printed_cre = printed_deb;
-	}else{
+	} else {
 		this->printed_cre = printed_deb;
 	}
 
@@ -94,5 +95,11 @@ void TBooking::setTime(TTime time) {
 }
 
 void TBooking::print() {
+	cout << getAmount() << " von " << getCreditor()->getCustomer()->getName()
+			<< "(" << getCreditor()->getAccountNumber() << ")"
+			<<" an " << getDepitor()->getCustomer()->getName()
+			<< "(" << getDepitor()->getAccountNumber() << ")"
+			<< " am " << getDate() << "\n";
+	cout << "Text:\n" << getMemo() << endl;
 
 }

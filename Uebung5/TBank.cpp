@@ -11,7 +11,7 @@
 #include <math.h>
 #include <iomanip>
 
-char negZeichen(TMoney m);
+
 
 TBank::TBank(string name, string blz) :
 		accountsInBank_counter(0) {
@@ -20,7 +20,14 @@ TBank::TBank(string name, string blz) :
 	this->setBLZ(blz);
 }
 
-int TBank::getAccountArrayCounter() const {
+TBank::~TBank() {
+	for (int i = 0; i < getAccountCounter(); i++) {
+		TAccount* a = getAccountArray()[i];
+		delete a;
+	}
+}
+
+int TBank::getAccountCounter() const {
 	return accountsInBank_counter;
 }
 
@@ -53,9 +60,9 @@ void TBank::addAccount(TAccount* acc) {
 }
 
 void TBank::print() {
-	cout << getName();
+	cout << getName() << "\n";
 	cout << "BLZ " << getBLZ() << "\n";
-	cout << "Anzahl Konten: " << getAccountArrayCounter() << "\n";
+	cout << "Anzahl Konten: " << getAccountCounter() << "\n";
 	cout << "Kontenliste: \n";
 
 	//Generierung Kontenliste
@@ -69,7 +76,7 @@ void TBank::print() {
 			<< std::setw(33) << "|" << std::left << std::setw(17) << "|"
 			<< std::left << std::setw(17) << "|" << "\n";
 
-	for (int i = 0; i < getAccountArrayCounter(); i++) {
+	for (int i = 0; i < getAccountCounter(); i++) {
 		std::cout << setfill(' ') << std::right << std::setw(12)
 				<< tAccountInBankArray[i]->getAccountNumber() << "| "
 				<< std::left << std::setw(31)
@@ -90,17 +97,62 @@ void TBank::print() {
 	cout << "\n" << flush;
 }
 
-char negZeichen(TMoney m) {
+char TBank::negZeichen(TMoney m) {
 	if (m.getAmount() < .0)
 		return '-';
 	return ' ';
 }
 
-TBank::~TBank() {
-	for (int i = 0; i < getAccountArrayCounter(); i++) {
+TAccount* TBank::getAccount(string acc){
+	for (int i = 0; i < getAccountCounter(); i++) {
 		TAccount* a = getAccountArray()[i];
-		a->getAccountAmount();
-		delete a;
+		if (a->getAccountNumber().compare(acc) == 0) return a;
 	}
+	return NULL;
+}
+
+TAccount* TBank::getAccountByID(int id){
+	return getAccountArray()[id];
+}
+
+
+
+ostream& operator<<(ostream & out, TBank m){
+
+	out << m.getName() << "\n";
+	out << "BLZ " << m.getBLZ() << "\n";
+	out << "Anzahl Konten: " << m.getAccountCounter() << "\n";
+	out << "Kontenliste: \n";
+
+	//Generierung Kontenliste
+	//...
+	out << std::left << std::setw(12) << "Kontonr." << std::left
+			<< std::setw(33) << "| Kundenname" << std::left << std::setw(17)
+			<< "| Anz. Buchungen" << std::left << std::setw(17)
+			<< "| Kontostand" << "\n";
+
+	out << setfill('-') << std::left << std::setw(12) << "" << std::left
+			<< std::setw(33) << "|" << std::left << std::setw(17) << "|"
+			<< std::left << std::setw(17) << "|" << "\n";
+
+	for (int i = 0; i < m.getAccountCounter(); i++) {
+		out << setfill(' ') << std::right << std::setw(12)
+				<< m.getAccountByID(i)->getAccountNumber() << "| "
+				<< std::left << std::setw(31)
+				<< m.getAccountByID(i)->getCustomer()->getName() << std::left
+				<< std::setw(15) << "|"
+				<< m.getAccountByID(i)->getBookingsCount() << std::left
+				<< std::setw(0) << " | "
+				<< m.negZeichen(m.getAccountByID(i)->getAccountAmount())
+				<< std::right << std::setw(10) << setiosflags(ios::fixed)
+				<< setprecision(2)
+				<< fabs(m.getAccountByID(i)->getAccountAmount().getAmount())
+				<< " "
+				<< m.getAccountByID(i)->getAccountAmount().getCurrency()
+				<< "\n";
+
+	}
+	out << "\n";
+	return out;
 }
 

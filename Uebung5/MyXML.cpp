@@ -104,7 +104,7 @@ vector<TTransaction*>* MyXML::toTransactionVector() {
 					t->setContraAccountNr(tmp->getTagContent());
 				} else if (tmp->getTagValue().compare("ContraBLZ") == 0) {
 					//cout << "ContraBLZ" << ":" << tmp->getTagContent() << endl;
-					t->setContraBlz(tmp->getTagContent());
+					t->setContraBLZ(tmp->getTagContent());
 				} else if (tmp->getTagValue() == "Money") {
 
 					//cout << "Money:" << endl;

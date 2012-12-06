@@ -50,3 +50,7 @@ void TMoney::print(){
 	printf("%0.2f %s", getAmount(), getCurrency());
 }
 
+ostream& operator<<(ostream & out, TMoney m){
+	out << std::fixed << setprecision(2) << m.getAmount() << " " <<  m.getCurrency();
+}
+

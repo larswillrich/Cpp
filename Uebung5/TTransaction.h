@@ -22,8 +22,8 @@ public:
 	void setBLZ(string blz);
 	string getContraAccountNr() const;
 	void setContraAccountNr(string contraAccountNr);
-	string getContraBlz() const;
-	void setContraBlz(string contraBlz);
+	string getContraBLZ() const;
+	void setContraBLZ(string contraBlz);
 	string getText() const;
 	void setText(string text);
 	TMoney* getAmount() const;

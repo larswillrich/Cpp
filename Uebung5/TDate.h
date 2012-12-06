@@ -8,6 +8,10 @@
 #ifndef TDATE_H_
 #define TDATE_H_
 #include <string>
+#include <time.h>
+#include <stdio.h>
+#include <ios>
+
 class TDate {
 public:
 	TDate();
@@ -23,6 +27,7 @@ public:
     //void setYear(int year);
     void print();
     std::string toString();
+    friend std::ostream& operator<<(std::ostream & out, TDate tl);
 
 private:
     int day;
