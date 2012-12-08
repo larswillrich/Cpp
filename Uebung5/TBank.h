@@ -30,7 +30,7 @@ public:
 	char negZeichen(TMoney m);
 	TAccount* getAccountByID(int id);
 	void print();
-	friend ostream& operator<<(ostream & out, TBank m);
+	friend ostream& operator<<(ostream & out, TBank* m);
 private:
 
 	string name;

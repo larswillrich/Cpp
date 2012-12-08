@@ -52,5 +52,6 @@ void TMoney::print(){
 
 ostream& operator<<(ostream & out, TMoney m){
 	out << std::fixed << setprecision(2) << m.getAmount() << " " <<  m.getCurrency();
+	return out;
 }
 

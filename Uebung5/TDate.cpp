@@ -94,8 +94,9 @@ TDate::~TDate() {
 }
 
 std::ostream& operator<<(std::ostream & out, TDate m) {
-	out << std::fixed << std::setprecision(0) << std::setw(2) << m.getDay()
-	<< std::setw(2) << m.getMonth()
+	out << std::setfill('0') << right << std::setprecision(0) << std::setw(2) << m.getDay() << "."
+	<< std::setw(2) << m.getMonth() << "."
 	<< std::setw(4) << m.getYear();
+	out << left << std::setfill(' ');
 	return out;
 }

@@ -12,6 +12,7 @@ using namespace std;
 #include "TSavingsAccount.h"
 #include "TFixedDepositAccount.h"
 
+
 TBank *getBank(TBank *, TBank *, string);
 int main() {
 	char *Dateiname = (char *) "transactions.list";
@@ -38,7 +39,6 @@ int main() {
 	TAccount *Konto4 = new TCurrentAccount(&Kunde3, Bank2, "999777555", "4444",
 			new TMoney(200.0));
 	TTransactionList TL(Dateiname);
-	cout << TL << endl;
 	for (unsigned i = 0; i < TL.getTransactionsCount(); i++) {
 		TAccount *Konto = NULL, *Gegenkonto = NULL;
 		Konto = NULL;
@@ -56,12 +56,12 @@ int main() {
 
 // Ausgaben:
 	cout << "Transaktionsliste:" << endl << TL << endl;
-	cout << "Kunde 1:" << endl << Kunde1 << endl;
-	cout << "Kunde 2:" << endl << Kunde2 << endl;
-	cout << "Kunde 3:" << endl << Kunde3 << endl;
+	cout << "Kunde 1:" << endl << &Kunde1 << endl;
+	cout << "Kunde 2:" << endl << &Kunde2 << endl;
+	cout << "Kunde 3:" << endl << &Kunde3 << endl;
 
-	cout << "Bank 1: " << endl << *Bank1 << endl;
-	//cout << "Bank 2: " << endl << *Bank2 << endl;
+	cout << "Bank 1: " << endl << Bank1 << endl;
+	cout << "Bank 2: " << endl << Bank2 << endl;
 	for (int i = 0; i < Bank1->getAccountCounter(); i++) {
 		(Bank1->getAccountByID(i))->printAccountStatement();
 		cout << endl;

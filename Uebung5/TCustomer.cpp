@@ -19,7 +19,6 @@ TCustomer::TCustomer(char* name, TDate birthday, char* street, char* streetnumbe
 }
 
 TCustomer::~TCustomer() {
-	cout << "CONSNTRUCT!" << endl;
 }
 
 TDate TCustomer::getBirthday() const {
@@ -111,19 +110,19 @@ void TCustomer::print(){
 
 	cout << "\n";
 }
-ostream& operator<<(ostream & out, TCustomer tl){
+ostream& operator<<(ostream & out, TCustomer* tl){
 	//cout << "Kunde:" << "\n";
-	out << tl.getName() << "\n";
-	out << tl.getStreet() << " " << tl.getStreetnumber() << "\n";
-	out << tl.getPlz() << " " << tl.getCity() << "\n";
+	out << tl->getName() << "\n";
+	out << tl->getStreet() << " " << tl->getStreetnumber() << "\n";
+	out << tl->getPlz() << " " << tl->getCity() << "\n";
 	out << "geboren am: ";
-	out << tl.getBirthday();
+	out << tl->getBirthday();
 	out << "\n";
 
 	//Ausgabe Kontent
 	out << "Konten: " << "\n";
-	for (int i = 0; i < tl.getNumberTAccounts() ; i++) {
-		TAccount* tAccountInCustomerArray = tl.getAccountByID(i);
+	for (int i = 0; i < tl->getNumberTAccounts() ; i++) {
+		TAccount* tAccountInCustomerArray = tl->getAccountByID(i);
 		out << "- Kontonr.: " << std::left << std::setw(12) << tAccountInCustomerArray->getAccountNumber() << std::setw(12) << " (Kontostand:     ";
 		tAccountInCustomerArray->getAccountAmount().print();
 		out << ")\n";

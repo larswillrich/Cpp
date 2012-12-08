@@ -127,7 +127,7 @@ ostream& operator<<(ostream & out, TTransactionList tl){
 	vector<TTransaction*>::iterator transaction_it;
 
 	for (int i = 0;i<tl.getTransactionsCount();i++){
-		out << std::setfill(' ') << "Transaction Nr. " << i+1 << endl;
+		out << std::setfill(' ') << "Transaction Nr.: " << i+1 << endl;
 		out  << std::left << std::setw(18) << "AccountNr =" << std::setw(18)   << tl[i].getAccountNr() << endl;
 		out   << std::left << std::setw(18) << "BLZ ="  << std::setw(18)  << tl[i].getBLZ() << endl;
 		out  << std::left << std::setw(18)<< "ContraAccountNr ="  << std::setw(18)  << tl[i].getContraAccountNr() << endl;

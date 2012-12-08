@@ -23,7 +23,8 @@ TBank::TBank(string name, string blz) :
 TBank::~TBank() {
 	for (int i = 0; i < getAccountCounter(); i++) {
 		TAccount* a = getAccountArray()[i];
-		delete a;
+		if (a != NULL)
+			delete a;
 	}
 }
 
@@ -77,8 +78,8 @@ void TBank::print() {
 			<< std::left << std::setw(17) << "|" << "\n";
 
 	for (int i = 0; i < getAccountCounter(); i++) {
-		std::cout << setfill(' ') << std::right << std::setw(12)
-				<< tAccountInBankArray[i]->getAccountNumber() << "| "
+		std::cout << setfill(' ') << std::right << std::setw(11)
+				<< tAccountInBankArray[i]->getAccountNumber() << " " << "| "
 				<< std::left << std::setw(31)
 				<< tAccountInBankArray[i]->getCustomer()->getName() << std::left
 				<< std::setw(15) << "|"
@@ -117,11 +118,11 @@ TAccount* TBank::getAccountByID(int id){
 
 
 
-ostream& operator<<(ostream & out, TBank m){
+ostream& operator<<(ostream & out, TBank* m){
 
-	out << m.getName() << "\n";
-	out << "BLZ " << m.getBLZ() << "\n";
-	out << "Anzahl Konten: " << m.getAccountCounter() << "\n";
+	out << m->getName() << "\n";
+	out << "BLZ " << m->getBLZ() << "\n";
+	out << "Anzahl Konten: " << m->getAccountCounter() << "\n";
 	out << "Kontenliste: \n";
 
 	//Generierung Kontenliste
@@ -135,20 +136,20 @@ ostream& operator<<(ostream & out, TBank m){
 			<< std::setw(33) << "|" << std::left << std::setw(17) << "|"
 			<< std::left << std::setw(17) << "|" << "\n";
 
-	for (int i = 0; i < m.getAccountCounter(); i++) {
-		out << setfill(' ') << std::right << std::setw(12)
-				<< m.getAccountByID(i)->getAccountNumber() << "| "
+	for (int i = 0; i < m->getAccountCounter(); i++) {
+		out << setfill(' ') << std::right << std::setw(11)
+				<< m->getAccountByID(i)->getAccountNumber() << " " << "| "
 				<< std::left << std::setw(31)
-				<< m.getAccountByID(i)->getCustomer()->getName() << std::left
+				<< m->getAccountByID(i)->getCustomer()->getName() << std::left
 				<< std::setw(15) << "|"
-				<< m.getAccountByID(i)->getBookingsCount() << std::left
+				<< m->getAccountByID(i)->getBookingsCount() << std::left
 				<< std::setw(0) << " | "
-				<< m.negZeichen(m.getAccountByID(i)->getAccountAmount())
+				<< m->negZeichen(m->getAccountByID(i)->getAccountAmount())
 				<< std::right << std::setw(10) << setiosflags(ios::fixed)
 				<< setprecision(2)
-				<< fabs(m.getAccountByID(i)->getAccountAmount().getAmount())
+				<< fabs(m->getAccountByID(i)->getAccountAmount().getAmount())
 				<< " "
-				<< m.getAccountByID(i)->getAccountAmount().getCurrency()
+				<< m->getAccountByID(i)->getAccountAmount().getCurrency()
 				<< "\n";
 
 	}

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <ios>
 
+using namespace std;
 class TDate {
 public:
 	TDate();
