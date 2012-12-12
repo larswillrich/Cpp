@@ -56,12 +56,12 @@ int main() {
 
 // Ausgaben:
 	cout << "Transaktionsliste:" << endl << TL << endl;
-	cout << "Kunde 1:" << endl << &Kunde1 << endl;
-	cout << "Kunde 2:" << endl << &Kunde2 << endl;
-	cout << "Kunde 3:" << endl << &Kunde3 << endl;
+	cout << "Kunde 1:" << endl << Kunde1 << endl;
+	cout << "Kunde 2:" << endl << Kunde2 << endl;
+	cout << "Kunde 3:" << endl << Kunde3 << endl;
 
-	cout << "Bank 1: " << endl << Bank1 << endl;
-	cout << "Bank 2: " << endl << Bank2 << endl;
+	cout << "Bank 1: " << endl << *Bank1 << endl;
+	cout << "Bank 2: " << endl << *Bank2 << endl;
 	for (int i = 0; i < Bank1->getAccountCounter(); i++) {
 		(Bank1->getAccountByID(i))->printAccountStatement();
 		cout << endl;

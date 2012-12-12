@@ -39,7 +39,7 @@ public:
 	void addNewAccount(TAccount* acc);
 	TAccount* getAccountByID(int id);
 	void print();
-	friend ostream& operator<<(ostream & out, TCustomer* tl);
+	friend ostream& operator<<(ostream & out, TCustomer& tl);
 
 private:
 
